@@ -1,0 +1,6 @@
+Initial fish population file for sucker model,,,,
+Test version created SFR 2015-11-27,,,,
+Age-class,Number,Length-min,Length-peak,Length-max
+0,100,2,4,7
+1,50,6,10,15
+2,30,14,20,24
