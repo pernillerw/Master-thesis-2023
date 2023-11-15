@@ -108,3 +108,20 @@ ggplot(combined_data, aes(x = dayNumber, y = dailyee, color = dataset)) +
   labs(x = "Time (day)", y = "Energy expenditure (MJ/day)", color = "Sensitivity simulation") +
   scale_color_manual(values = color_palette) +
   theme_bw()
+
+#sensitivity analysis regarding activity distribution to test how robust the model was, and to 
+#check if days had to be excluded prior to calculation
+activity <- fread("/Users/pernillerubinwollan/Documents/master netlogo/AgentSeal -master mine koder/Output/Movement_simulation_new_lowerNL_2test.csv")
+
+day_numbers <- c(0,1,5,15,50,110,160,220,255,290,320,360)
+
+# Create a bar plot of activities for the specified DayNumbers 
+ggplot() +
+  geom_bar(
+    data = activity %>% filter(V4 %in% day_numbers),
+    aes(x = factor(V4), fill = V6),
+    position = "fill"
+  ) +
+  labs(x = "DayNumber", y = "Proportion", fill = "Activity") +
+  scale_fill_brewer(palette = "Set3") +
+  theme_minimal()
